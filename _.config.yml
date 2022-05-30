@@ -6,3 +6,5 @@ relative_links:
 include:
   - README.md
   - pagina2.md
+layouts:
+  - test.html
