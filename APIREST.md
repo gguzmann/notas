@@ -7,7 +7,7 @@ Iniciar Repositorio
 `npm i express`
 
 
-<code>
+<pre>
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,6 +22,6 @@ app.listen(port, () => {
 })
 
 
-</code>
+</pre>
 
 >`npm i nodemon -D`
