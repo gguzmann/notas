@@ -18,20 +18,28 @@ public class Cliente {
 
 ## ATRiBUTOS
 
-ACCESO : 
+**ACCESO** : 
  
 	- public: Accesible para todas las clases.
 	- private: Accesible solo dentro de la clase actual(this).
 	- protected: Accesible a package actual y subclases.
 	- default: Accesible desde la clase y el package en que se encuentra.
 
-TIPO: primitivo o objeto.
+**TIPO**: primitivo o objeto.
 
-NOMBRE: camelCase y que describa su valor.
+**NOMBRE**: camelCase y que describa su valor.
 
+Ejemplo de atributos:
 
-    //  Acceso  -   Tipo    -   Nombre - Valor
-        private     String      color = "red";
+>		Acceso  -   Tipo    -   Nombre	-	 Valor        
+>		private     String      color 	= 	"red";
+
+			// Atributos
+			private String nombre;
+			private String apellido;
+			private int edad;
+			private String curso;
+
 
 ### Encapsulamiento de variables:
 
@@ -45,7 +53,7 @@ Sirve para asignarle valores a nuestro objeto. Por defecto el constructor asigna
 Constructor vacio en caso que quiera asignar valor luego de instanciar el objeto.
 
  Constructor con parametros para instanciar el objeto y asignar valores.
- 
+
 Se pueden crear ambos constructores.
 
 <pre>
