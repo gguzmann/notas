@@ -3,11 +3,18 @@
 ## NUEVO REPOSITORIO
 
 1. En github crear nuevo repositorio.
-
+2. En terminal: 
+<pre>
+    echo "# asdasd" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin https://github.com/gguzmann/test.git
+    git push -u origin main
+</pre>
 
 ## COMMIT
-
-    git init
 
     git add .
 
@@ -26,8 +33,6 @@ Cambiar de rama
 
     git checkout 'nombreRama'
 
-    
-## JUNTAR BRANCHE
 actualizar rama actual
 
     git pull    
