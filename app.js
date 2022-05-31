@@ -1,3 +1,0 @@
-clg
-
-console.log();

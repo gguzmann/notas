@@ -22,7 +22,7 @@ ACCESO :
  
 	- public: Accesible para todas las clases.
 	- private: Accesible solo dentro de la clase actual(this).
-	- protected:  
+	- protected: Accesible a package actual y subclases.
 	- default: Accesible desde la clase y el package en que se encuentra.
 
 TIPO: primitivo o objeto.
@@ -54,11 +54,33 @@ Por defecto el constructor asignado a una instancia es vacio, no necesita crearl
 
 ## SETTER & GETTER
 
+En caso de que atributos sean privados, para acceder a ellas es necesario crear funciones publicas para modificar o obtener las variables desde afuera. Ocupar this para modificar atributos de clase.
+
+<pre>
+// Getter Setter
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+</pre>
+
 ## METODOS
+
+Funciones dentro de cada clase.
+
+<pre>
+// Metodos
+public String toString() {
+		return "Alumno [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", curso=" + curso + "]";
+	}
+</pre>
 
 ## EJEMPLO CLASE ALUMNO
 <pre>
-package com.generation.may27;
+package com.generation.may27; // Package donde se encuentra la clase
 
 public class Alumno {
 
@@ -115,7 +137,10 @@ public class Alumno {
 	}
 
 	// Metodos
+	public String toString() {
+		return "Alumno [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", curso=" + curso + "]";
+		}
 
-}
+	}
 
 </pre>
