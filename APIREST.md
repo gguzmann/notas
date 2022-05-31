@@ -1,6 +1,6 @@
 # API REST
 
-## Inicializar
+## 1. Levantar servidor
 
 Inicializar proyecto:
 
@@ -9,6 +9,18 @@ Inicializar proyecto:
 Instalar express:
 
     npm i express
+
+Crear archivo app.js 
+
+<pre>
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.listen(port, () => {
+    console.log('server on in port', port);
+})
+</pre>
 
 Instalar Nodemon como dependencia de desarrollo:
 
@@ -19,14 +31,5 @@ Run proyecto:
     "dev": "npx nodemon index.js"
     "start": "node index.js"
 
-Levantar servidor en puerto 3000:
-<pre>
-const express = require('express');
-const app = express();
-const port = 3000;
 
-app.listen(port, () => {
-    console.log('server on in port', port);
-})
-</pre>
 

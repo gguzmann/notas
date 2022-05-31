@@ -40,9 +40,21 @@ NOMBRE: camelCase y que describa su valor.
 
 ## CONSTRUCTOR
 
-Por defecto el constructor asignado a una instancia es vacio, no necesita crearlo en el objeto. A menos que cree el constructor con parametros.
+Sirve para asignarle valores a nuestro objeto. Por defecto el constructor asignado a una instancia es vacio, no necesita crearlo en el objeto. A menos que cree el constructor con parametros.
+
+Constructor vacio en caso que quiera asignar valor luego de instanciar el objeto.
+
+ Constructor con parametros para instanciar el objeto y asignar valores.
+ 
+Se pueden crear ambos constructores.
 
 <pre>
+//Constructor vacio
+	public Alumno() {
+		super();
+	}
+
+//Constructor con parametros
 	public Alumno(String nombre, String apellido, Integer edad, String curso) {
 		super();
 		this.nombre = nombre;
