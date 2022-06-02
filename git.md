@@ -5,9 +5,8 @@
 1. En github crear nuevo repositorio.
 2. En terminal: 
 <pre>
-    echo "# asdasd" >> README.md
     git init
-    git add README.md
+    git add .
     git commit -m "first commit"
     git branch -M main
     git remote add origin https://github.com/gguzmann/test.git
