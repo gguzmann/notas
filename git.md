@@ -19,11 +19,16 @@
 
     git commit -m "nameCommit"
 
-    git status
+    git status // ver cambios de respositorio
 
     git push
     
 ## BRANCH
+
+Lista ramas
+
+    git branch
+
 Crea y cambia de rama
 
     git checkout -b 'nombreNuevaRama' 
@@ -37,10 +42,10 @@ actualizar rama actual
     git pull    
 
 sube tus cambios a la rama actual
+
     git merge 'nombreRama' 
     
     git push
-
 
 
     

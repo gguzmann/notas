@@ -28,5 +28,3 @@
     - Nombre de Acreditación
     - Nombre del organismo de acreditacion
     - Fecha de acreditación
-
-
