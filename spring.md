@@ -8,35 +8,39 @@ modelo: clases java-> objetos - entidades
 
 
 ## RUTAS 
-@RequestMapping("/nombreRuta") // antes de cada clase. No va con ; al final
-@RequestMapping(value = "/clients/register", method= RequestMethod.GET) // Otra forma de enrutamiento
+	@RequestMapping("/nombreRuta") // antes de cada clase. No va con ; al final
+	@RequestMapping(value = "/clients/register", method= RequestMethod.GET) // Otra forma de enrutamiento
 
-public String users() {
+	public String users() {
 		return "usuarios"; // Lo que devuelve al ingresar a localhost:8080/nombreRuta
 	}
 
 
 //INDICAR RUTA
-//PATH: localhost:8080/index
+	
+	PATH: localhost:8080/index
 
-@RequestMapping("/nombreRuta") // antes de cada clase. No va con ; al final
-@RequestMapping(value = "/clients/register", method= RequestMethod.GET) // Otra forma de enrutamiento
+	@RequestMapping("/nombreRuta") // antes de cada clase. No va con ; al final
+	@RequestMapping(value = "/clients/register", method= RequestMethod.GET) // Otra forma de enrutamiento
 
 
 
 
 ## ENVIAR DATOS
 //INDICAR ENVIAR DATOS SOLO POR POST
-@RequestPost("/")
+
+	@RequestPost("/")
 
 //INDICAR PARAMETRO
-//PATH: localhost:8080/index?pagina=9 -> parametro pagina = 9
-@RequestParam(value="nameParam") String nameVar // Por defecto requiere el parametro en la url, si no da error
-@RequestParam(value="nameParam", required = false) String nameVar // si no viene en url marca null
+
+	PATH: localhost:8080/index?pagina=9 -> parametro pagina = 9
+	@RequestParam(value="nameParam") String nameVar // Por defecto requiere el parametro en la url, si no da error
+	@RequestParam(value="nameParam", required = false) String nameVar // si no viene en url marca null
 
 //INDICAR VARIABLE EN RUTA(PATH)
-//PATH: localhost:8080/users/juan -> variable = juan
-@PathVariable("nameVar) String nameVar
+	
+	PATH: localhost:8080/users/juan -> variable = juan
+	@PathVariable("nameVar) String nameVar
 
 
 
@@ -85,3 +89,55 @@ public String users() {
 
 	</body>
 	</html>
+
+
+## CONFIGURAR MYSQL
+Application.properties:
+
+	#configuracion base datos
+	spring.datasource.url=jdbc:mysql://localhost:3306/generationg1
+	spring.datasource.username=israel
+	spring.datasource.password=secret
+
+	#CREAR O ACTUALIZAR TABLAS 'none' or 'update'
+	spring.jpa.hibernate.ddl-auto=update
+
+	#Nos muestra las querys
+	spring.jpa.show-sql= true
+
+dependencias:
+
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+	</dependency>
+
+En modelo Usuario agregar antes de la clase:
+
+	@Entity
+	@Table(name="usuarios")
+
+En atributos:
+
+	@Id // PRIMARY KEY
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //AUTO_INCREMENT
+	@Size(min=3,max=20) // Cambia el tamaño de la columna en la BD
+	@NotNull
+
+## SERVICES
+
+Logica de negocio. Validaciones del sistema
+
+LLama al repository(injeccion de dependencias)
+
+## REPOSITORIES
+
+>*Crear interfaz no clase
+
+Las interfaces solo definen metodos, no la implementan.
+
+Aqui se realizan las Querys y metodos que se conectan a la base de datos
+
+es una clase con herencia:
+
+	extends JpaRepository<Objeto, tipo_dato_PK>
