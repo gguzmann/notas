@@ -1,4 +1,7 @@
 # BASE DE DATOS
+## INDEX
+
+[QUERYS](https://gguzmann.github.io/notas/querys.html)
 
 Entrar a mysql por consola:
 
@@ -118,6 +121,14 @@ Ordena segun columna (asc, desc):
 
     SELECT * FROM nombre_tabla ORDER BY colum ASC;
 
+# RELACIONES
+
+**Relación uno a uno:** un vínculo entre la información de dos tablas, donde cada registro en cada tabla solo aparece una vez. Por ejemplo, puede haber una relación uno a uno entre los empleados y los coches que conducen.
+
+**Relación de uno a muchos:** un registro de una tabla se puede asociar a uno o varios registros de otra tabla.. Por ejemplo, cada cliente puede tener varios pedidos de ventas.
+
+**Relación de muchos a muchos:** se produce cuando varios registros de una tabla se asocian a varios registros de otra tabla. Por ejemplo, existe una relación de muchos a muchos entre los clientes y los productos. Se relacionan a traves de una tabla intermedio.
+
 
 # PRIVILEGIOS
 
@@ -134,6 +145,3 @@ Crear Usuario para conectarse remotanmente y dar permisos:
 Actualizar privilegios:
 
     FLUSH PRIVILEGES;
-
-
-
