@@ -6,6 +6,68 @@ Vista: html - css -jsp - js -> react - angular - vuejs
 controlador: clases java-> controllers - services - repositories
 modelo: clases java-> objetos - entidades
 
+## ESTUCTURA
+
+	src.java -> repositories.pckg
+				api.pckg
+				models.pckg
+				controllers.pckg
+				services.pckg
+	
+	src.main.webapp.WEB-INF -> Archivos .jsp
+
+	src.resources -> application.properties ->	PORT
+												MYSQL CONFIG
+
+## DEPENDENCIES
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.mindrot</groupId> <artifactId>jbcrypt</artifactId> 
+			<version>0.4</version> </dependency> <dependency> <groupId>org.springframework.boot</groupId> 
+			<artifactId>spring-boot-starter-security</artifactId> </dependency> -->
+
+	</dependencies>	
+
+
 
 ## RUTAS 
 	@RequestMapping("/nombreRuta") // antes de cada clase. No va con ; al final
@@ -94,12 +156,17 @@ modelo: clases java-> objetos - entidades
 ## CONFIGURAR MYSQL
 Application.properties:
 
+	#Configurar port
+	server.port=8080
+
+	#RUTA PARA ACCEDER A JSP
+	spring.mvc.view.prefix= /WEB-INF/
 	#configuracion base datos
 	spring.datasource.url=jdbc:mysql://localhost:3306/generationg1
 	spring.datasource.username=israel
 	spring.datasource.password=secret
 
-	#CREAR O ACTUALIZAR TABLAS 'none' or 'update'
+	#CREAR O ACTUALIZAR TABLAS 'create-drop' or 'update'
 	spring.jpa.hibernate.ddl-auto=update
 
 	#Nos muestra las querys
@@ -121,6 +188,8 @@ En atributos:
 
 	@Id // PRIMARY KEY
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //AUTO_INCREMENT
+	private Long id;
+
 	@Size(min=3,max=20) // Cambia el tamaño de la columna en la BD
 	@NotNull
 
