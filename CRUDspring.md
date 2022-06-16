@@ -34,6 +34,7 @@ en pom.xml agregar las siguientes dependencias:
 
 <details>
 <summary>dependencias</summary>
+<pre>
 
     <dependencies>
 		<dependency>
@@ -82,7 +83,7 @@ en pom.xml agregar las siguientes dependencias:
 	</dependencies>	
 
 </details>
-
+</pre>
 ## CONFIGURACIONES
 
 En application.properties:
@@ -109,6 +110,7 @@ En application.properties:
 
 <details>
 <summary>Auto.java</summary>
+<pre>
 
     // PACKAGE
     package com.generation.models;
@@ -217,7 +219,7 @@ En application.properties:
             this.precio = precio;
         }	
     }
-
+</pre>
 </details>
 
 ## SERVICES
@@ -226,6 +228,11 @@ En application.properties:
 
 <details>
 <summary>AutoService.java</summary>
+<pre>
+
+
+
+
 
     //Package
     package com.generation.services;
@@ -263,7 +270,7 @@ En application.properties:
         
     }
 
-
+</pre>
 </details>
 
 ## REPOSITORY
@@ -272,6 +279,10 @@ En application.properties:
 
 <details>
 <summary>AutoRepository.java</summary>
+<pre>
+
+
+
 
     // Package
     package com.generation.repositories;
@@ -288,7 +299,7 @@ En application.properties:
 
     }
 
-
+</pre>
 </details>
 
 ## CONTROLADOR
@@ -297,6 +308,9 @@ En application.properties:
 
 <details>
 <summary>AutoController.java</summary>
+<pre>
+
+
 
     // Package
     package com.generation.controllers;
@@ -370,7 +384,7 @@ En application.properties:
         
     }
 
-
+</pre>
 </details>
 
 ## .JPS
@@ -379,6 +393,10 @@ Agregar archivos .jsp en src.main.webapp.WEB-INF:
 
 <details>
 <summary>indexAuto.jsp</summary>
+<pre>
+
+
+
     <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -424,11 +442,14 @@ Agregar archivos .jsp en src.main.webapp.WEB-INF:
     </body>
     </html>
     
+</pre>
 </details>
 
 
 <details>
 <summary>registerAuto.jsp</summary>
+<pre>
+
 
     <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
@@ -467,4 +488,6 @@ Agregar archivos .jsp en src.main.webapp.WEB-INF:
 
     </body>
     </html>
+
+</pre>
 </details>
