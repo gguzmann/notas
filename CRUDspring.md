@@ -82,8 +82,10 @@ en pom.xml agregar las siguientes dependencias:
 
 	</dependencies>	
 
-</details>
 </pre>
+
+</details>
+
 ## CONFIGURACIONES
 
 En application.properties:
