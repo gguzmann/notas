@@ -6,67 +6,9 @@ Vista: html - css -jsp - js -> react - angular - vuejs
 controlador: clases java-> controllers - services - repositories
 modelo: clases java-> objetos - entidades
 
-## ESTUCTURA
+EJEMPLO CRUD: 
 
-	src.java -> repositories.pckg
-				api.pckg
-				models.pckg
-				controllers.pckg
-				services.pckg
-	
-	src.main.webapp.WEB-INF -> Archivos .jsp
-
-	src.resources -> application.properties ->	PORT
-												MYSQL CONFIG
-
-## DEPENDENCIES
-
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-
-		<!-- <dependency> <groupId>org.mindrot</groupId> <artifactId>jbcrypt</artifactId> 
-			<version>0.4</version> </dependency> <dependency> <groupId>org.springframework.boot</groupId> 
-			<artifactId>spring-boot-starter-security</artifactId> </dependency> -->
-
-	</dependencies>	
-
+ [SPRING BOOT - CRUD](https://gguzmann.github.io/notas/CRUDspring.html)
 
 
 ## RUTAS 
