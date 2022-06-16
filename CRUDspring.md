@@ -373,3 +373,98 @@ En application.properties:
 
 </details>
 
+## .JPS
+
+Agregar archivos .jsp en src.main.webapp.WEB-INF:
+
+<details>
+<summary>indexAuto.jsp</summary>
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+    <h1>Bienvenido</h1>
+    <h2>Autos:</h2>
+
+    <div class="container">
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+    <c:forEach var="autos" items="${listAuto}">
+
+    <tr>
+        <th><c:out value="${autos.marca}"></c:out></th>
+        <th><c:out value="${autos.color}"></c:out></th>
+        <th><c:out value="${autos.precio}"></c:out></th>
+        <th> </th>
+    </tr>
+    </c:forEach>
+
+    </tbody>
+    </table>
+    </div>
+    </body>
+    </html>
+    
+</details>
+
+
+<details>
+<summary>registerAuto.jsp</summary>
+
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    </head>
+    <body>
+
+        <c:out value="${msgError }"></c:out>
+        <div>
+            <form:form action="/auto/register/validate" method="post" modelAttribute="auto">
+                <form:label path="marca">Marca:</form:label>
+                <form:input path="marca"/>
+                <br>
+                <form:label path="color">Color:</form:label>
+                <form:input path="color"/>
+                <br>
+                <form:label path="velocidad">Velocidad Maxima:</form:label>
+                <form:input path="velocidad"/>
+                <br>
+                <form:label path="patente">Patente:</form:label>
+                <form:input path="patente"/>
+                <br>
+                <form:label path="precio">precio:</form:label>
+                <form:input path="precio"/>
+                <br>
+                <input type="submit" value="registrar"/>
+            </form:form>
+        
+        </div>
+
+    </body>
+    </html>
+</details>
