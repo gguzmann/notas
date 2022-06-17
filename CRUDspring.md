@@ -222,6 +222,7 @@ En application.properties:
         }	
     }
 </pre>
+
 </details>
 
 ## SERVICES
@@ -229,12 +230,10 @@ En application.properties:
 > Crear clase AutoService en services en src.java.services:
 
 <details>
+
 <summary>AutoService.java</summary>
+
 <pre>
-
-
-
-
 
     //Package
     package com.generation.services;
@@ -273,6 +272,7 @@ En application.properties:
     }
 
 </pre>
+
 </details>
 
 ## REPOSITORY
@@ -280,7 +280,9 @@ En application.properties:
 > Crear Interfaz AutoRepository en services en src.java.repositories:
 
 <details>
+
 <summary>AutoRepository.java</summary>
+
 <pre>
 
 
@@ -302,6 +304,7 @@ En application.properties:
     }
 
 </pre>
+
 </details>
 
 ## CONTROLADOR
@@ -309,10 +312,10 @@ En application.properties:
 > Crear clase AutoController en services en src.java.controllers:
 
 <details>
+
 <summary>AutoController.java</summary>
+
 <pre>
-
-
 
     // Package
     package com.generation.controllers;
@@ -387,6 +390,7 @@ En application.properties:
     }
 
 </pre>
+
 </details>
 
 ## .JPS
@@ -394,7 +398,9 @@ En application.properties:
 Agregar archivos .jsp en src.main.webapp.WEB-INF:
 
 <details>
+
 <summary>indexAuto.jsp</summary>
+
 <pre>
 
 
@@ -445,11 +451,14 @@ Agregar archivos .jsp en src.main.webapp.WEB-INF:
     </html>
     
 </pre>
+
 </details>
 
 
 <details>
+
 <summary>registerAuto.jsp</summary>
+
 <pre>
 
 
@@ -492,4 +501,5 @@ Agregar archivos .jsp en src.main.webapp.WEB-INF:
     </html>
 
 </pre>
+
 </details>
