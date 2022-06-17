@@ -225,87 +225,6 @@ En application.properties:
 
 </details>
 
-## SERVICES
-
-> Crear clase AutoService en services en src.java.services:
-
-<details>
-
-<summary>AutoService.java</summary>
-
-<pre>
-
-    //Package
-    package com.generation.services;
-
-    //Import
-    import java.util.List;
-
-    import javax.validation.Valid;
-
-    import org.springframework.beans.factory.annotation.Autowired;
-    import org.springframework.stereotype.Service;
-
-    import com.generation.models.Auto;
-    import com.generation.repositories.AutoRepository;
-
-    //Inicio Clase
-    @Service
-    public class AutoService {
-
-        //Injeccion repository
-        @Autowired
-        AutoRepository autoRepository;
-        
-        // Agregar AUTO -> INSERT INTO autos() values();
-        public void addAuto(@Valid Auto auto) {
-            // TODO Auto-generated method stub
-            autoRepository.save(auto);
-        }
-
-        // Mostrar AUTOS -> SELECT * FROM autos;
-        public List<Auto> getAll() {
-            return autoRepository.findAll();
-        }
-
-        
-    }
-
-</pre>
-
-</details>
-
-## REPOSITORY
-
-> Crear Interfaz AutoRepository en services en src.java.repositories:
-
-<details>
-
-<summary>AutoRepository.java</summary>
-
-<pre>
-
-
-
-
-    // Package
-    package com.generation.repositories;
-
-    // Importaciones
-    import org.springframework.data.jpa.repository.JpaRepository;
-    import org.springframework.stereotype.Repository;
-
-    import com.generation.models.Auto;
-
-    // Inicializar repository y extender a JpaRepository <T,L>
-    @Repository
-    public interface AutoRepository extends JpaRepository<Auto, Long>{
-
-    }
-
-</pre>
-
-</details>
 
 ## CONTROLADOR
 
@@ -499,6 +418,88 @@ Agregar archivos .jsp en src.main.webapp.WEB-INF:
 
     </body>
     </html>
+
+</pre>
+
+</details>
+
+## SERVICES
+
+> Crear clase AutoService en services en src.java.services:
+
+<details>
+
+<summary>AutoService.java</summary>
+
+<pre>
+
+    //Package
+    package com.generation.services;
+
+    //Import
+    import java.util.List;
+
+    import javax.validation.Valid;
+
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Service;
+
+    import com.generation.models.Auto;
+    import com.generation.repositories.AutoRepository;
+
+    //Inicio Clase
+    @Service
+    public class AutoService {
+
+        //Injeccion repository
+        @Autowired
+        AutoRepository autoRepository;
+        
+        // Agregar AUTO -> INSERT INTO autos() values();
+        public void addAuto(@Valid Auto auto) {
+            // TODO Auto-generated method stub
+            autoRepository.save(auto);
+        }
+
+        // Mostrar AUTOS -> SELECT * FROM autos;
+        public List<Auto> getAll() {
+            return autoRepository.findAll();
+        }
+
+        
+    }
+
+</pre>
+
+</details>
+
+## REPOSITORY
+
+> Crear Interfaz AutoRepository en services en src.java.repositories:
+
+<details>
+
+<summary>AutoRepository.java</summary>
+
+<pre>
+
+
+
+
+    // Package
+    package com.generation.repositories;
+
+    // Importaciones
+    import org.springframework.data.jpa.repository.JpaRepository;
+    import org.springframework.stereotype.Repository;
+
+    import com.generation.models.Auto;
+
+    // Inicializar repository y extender a JpaRepository <T,L>
+    @Repository
+    public interface AutoRepository extends JpaRepository<Auto, Long>{
+
+    }
 
 </pre>
 
