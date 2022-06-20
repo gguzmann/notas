@@ -254,19 +254,67 @@ En application.properties:
     public class AutoService {
 
         //Injeccion repository
-        @Autowired
-        AutoRepository autoRepository;
-        
-        // Agregar AUTO -> INSERT INTO autos() values();
-        public void addAuto(@Valid Auto auto) {
-            // TODO Auto-generated method stub
-            autoRepository.save(auto);
-        }
+        public class AutoController {
 
-        // Mostrar AUTOS -> SELECT * FROM autos;
-        public List<Auto> getAll() {
-            return autoRepository.findAll();
-        }
+	@Autowired
+	AutoService autoService;
+	
+	@RequestMapping("")
+	public String indexAuto(Model model ) {
+		
+		List<Auto> listAuto = autoService.getAll();
+		model.addAttribute("listAuto", listAuto);
+		
+		return "indexAuto.jsp";
+	}
+	
+	@RequestMapping("/register")
+	public String registerAuto(@ModelAttribute("auto") Auto auto) {
+		return "registerAuto.jsp";
+	}
+	
+	@PostMapping("/register/validate")
+	public String validateAuto(@Valid @ModelAttribute("auto") Auto auto,
+			BindingResult result,
+			Model model) {
+		
+		if(result.hasErrors()) {
+			model.addAttribute("msgError", "Error en ingreso de datos");
+			return "registerAuto.jsp";
+		}
+		
+		autoService.addAuto(auto);
+		
+		return "redirect:/auto";
+	}
+	
+	@RequestMapping("/delete/{id}")
+	public String deleteAuto(@PathVariable("id") Long id) {
+		autoService.deleteAuto(id);
+		return "redirect:/auto";
+	}
+	
+	@RequestMapping("/edit/{id}")
+	public String editarAuto(@PathVariable("id") Long id, Model model) {
+		Auto auto = autoService.FindOneAuto(id);
+		
+		model.addAttribute("auto", auto);
+		
+		return "editAuto.jsp";
+	}
+	
+	@PostMapping("/edit/validate/{id}")
+	public String validarEditarAuto(
+			@PathVariable("id") Long id,
+			@Valid
+			@ModelAttribute("auto") Auto auto,
+			BindingResult result,
+			Model model) {
+		
+		autoService.editarAuto(auto, id);
+		
+		return "redirect:/auto";
+	}
 
         
     }
@@ -341,50 +389,65 @@ En application.properties:
     @RequestMapping("/auto")
     public class AutoController {
 
-        // Injectar dependecias
-        @Autowired
-        AutoService autoService;
-        
-        // GET: Ruta "/auto"
-        @RequestMapping("")
-        public String indexAuto(Model model ) {
-            
-            // LLamar metodo getAll de AutoService
-            List<Auto> listAuto = autoService.getAll();
-            
-            // Pasar lista de autos a .jsp
-            model.addAttribute("listAuto", listAuto);
-                
-            return "indexAuto.jsp";
-        }
-        
-        // GET:  Ruta "/register"
-        @RequestMapping("/register")
-
-        // Enviar objeto auto vacio
-        public String registerAuto(@ModelAttribute("auto") Auto auto) {
-            return "registerAuto.jsp";
-        }
-        
-        // POST: Ruta
-        @PostMapping("/register/validate")
-        // Recibir objeto con datos
-        public String validateAuto(@Valid @ModelAttribute("auto") Auto auto,
-                BindingResult result,
-                Model model) {
-            
-            // Comprueba si hay errores y devulve mensaje
-            if(result.hasErrors()) {
-                model.addAttribute("msgError", "Error en ingreso de datos");
-                return "registerAuto.jsp";
-            }
-            
-            // Llamar metodo addAuto 
-            // Guardar auto en base de datos
-            autoService.addAuto(auto);
-            
-            return "redirect:/auto";
-        }
+	@Autowired
+	AutoService autoService;
+	
+	@RequestMapping("")
+	public String indexAuto(Model model ) {
+		
+		List<Auto> listAuto = autoService.getAll();
+		model.addAttribute("listAuto", listAuto);
+		
+		return "indexAuto.jsp";
+	}
+	
+	@RequestMapping("/register")
+	public String registerAuto(@ModelAttribute("auto") Auto auto) {
+		return "registerAuto.jsp";
+	}
+	
+	@PostMapping("/register/validate")
+	public String validateAuto(@Valid @ModelAttribute("auto") Auto auto,
+			BindingResult result,
+			Model model) {
+		
+		if(result.hasErrors()) {
+			model.addAttribute("msgError", "Error en ingreso de datos");
+			return "registerAuto.jsp";
+		}
+		
+		autoService.addAuto(auto);
+		
+		return "redirect:/auto";
+	}
+	
+	@RequestMapping("/delete/{id}")
+	public String deleteAuto(@PathVariable("id") Long id) {
+		autoService.deleteAuto(id);
+		return "redirect:/auto";
+	}
+	
+	@RequestMapping("/edit/{id}")
+	public String editarAuto(@PathVariable("id") Long id, Model model) {
+		Auto auto = autoService.FindOneAuto(id);
+		
+		model.addAttribute("auto", auto);
+		
+		return "editAuto.jsp";
+	}
+	
+	@PostMapping("/edit/validate/{id}")
+	public String validarEditarAuto(
+			@PathVariable("id") Long id,
+			@Valid
+			@ModelAttribute("auto") Auto auto,
+			BindingResult result,
+			Model model) {
+		
+		autoService.editarAuto(auto, id);
+		
+		return "redirect:/auto";
+	}
         
         
     }
@@ -500,6 +563,80 @@ Agregar archivos .jsp en src.main.webapp.WEB-INF:
     </body>
     </html>
 
+</pre>
+
+</details>
+
+<details>
+<summary>editAuto.jsp</summary>
+
+<pre>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="container">
+
+		<h1>Editar Auto:</h1>
+		<form:form action="/auto/edit/validate/${auto.id }" method="post"
+			modelAttribute="auto">
+			
+			<div class="form-group">
+			<form:label path="id">ID:</form:label>
+			<form:input class="form-control" path="id" type="number" />
+			</div>
+			
+			<div class="form-group">
+			<form:label path="marca">Marca:</form:label>
+			<form:input class="form-control" path="marca" />
+			</div>
+
+			<div class="form-group">
+			<form:label path="color">Color:</form:label>
+			<form:input class="form-control" path="color" />
+			</div>
+			
+			<!--  
+			<div class="form-group">
+			<form:label path="velocidad">Velocidad Maxima:</form:label>
+			<form:input class="form-control" path="velocidad" />
+			</div>
+			
+			<div class="form-group">
+			<form:label path="patente">Patente:</form:label>
+			<form:input class="form-control" path="patente" />
+			</div> -->
+			
+			<div class="form-group">
+			<form:label path="precio">precio:</form:label>
+			<form:input class="form-control" path="precio" />
+			</div>
+			
+			<br>
+			<input type="submit" class="btn btn-primary" value="Editar" />
+			
+			
+		</form:form>
+
+	</div>
+
+</body>
+</html>
 </pre>
 
 </details>
