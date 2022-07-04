@@ -25,15 +25,8 @@
 	private List<Dispositivo> listaDispositivos;
 
     EN MODELO ROL / DISPOSITIVO
-    //ManyToMany
-    @ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(
-			name="roles_usuarios",							// nombre tabla relacional
-			joinColumns = @JoinColumn(name="rol_id"), nullable = false),	// columna entidad local
-			inverseJoinColumns = @JoinColumn(name="usuario_id", nullable = false)	// columna entidad externa
-			)
-	private List<Usuarios> listaUsuarios;
-
+ 	@ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Usuario> usuarios;
 
 
 //MANY TO ONE - AUTO
