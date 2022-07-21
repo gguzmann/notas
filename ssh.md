@@ -31,8 +31,9 @@ CREATE USER 'gguzman'@'localhost' IDENTIFIED BY 'admin1234';
 
 GRANT ALL PRIVILEGES ON *.* TO 'gguzman'@'localhost' WITH GRANT OPTION;
 
-CREATE USER 'gguzman'@'%' IDENTIFIED BY 'admin1234';
-GRANT ALL PRIVILEGES ON *.* TO 'gguzman'@'%' WITH GRANT OPTION;
+    CREATE USER 'gguzman'@'%' IDENTIFIED BY 'admin1234';
+    GRANT ALL PRIVILEGES ON *.* TO 'gguzman'@'%' WITH GRANT OPTION;
+    FLUSH PRIVILEGES;
 
 Cambiar clave usuario
 
